@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conteúdo Exclusivo VIP - +18</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ff3366;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff3366, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .age-warning {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff3366;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #ff3366);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* CONTADOR REGRESSIVO */
+        .countdown {
+            background: rgba(255,51,102,0.2);
+            border: 2px solid #ff3366;
+            border-radius: 50px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .countdown h3 {
+            color: #ff3366;
+            margin-bottom: 10px;
+        }
+
+        .timer {
+            font-size: 36px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        /* GRID DE VÍDEOS - AS PRÉVIAS QUE TU PEDIU */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .video-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,51,102,0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff3366;
+            box-shadow: 0 10px 30px rgba(255,51,102,0.5);
+        }
+
+        .video-player {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #ff3366;
+            background: #000;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .video-desc {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .video-badge {
+            background: #ff3366;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* ÁREA DE PACOTES */
+        .packages {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .package-card:hover {
+            border-color: #ff3366;
+            transform: scale(1.02);
+        }
+
+        .package-card.popular {
+            border: 2px solid #ff3366;
+            box-shadow: 0 0 30px rgba(255,51,102,0.3);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff3366;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .package-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .package-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ff3366;
+            margin-bottom: 20px;
+        }
+
+        .package-price span {
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .package-features li {
+            margin: 10px 0;
+            color: #ccc;
+        }
+
+        .package-features li:before {
+            content: "✓";
+            color: #ff3366;
+            margin-right: 10px;
+        }
+
+        .btn-select {
+            background: transparent;
+            border: 2px solid #ff3366;
+            color: #ff3366;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-select:hover {
+            background: #ff3366;
+            color: white;
+        }
+
+        .btn-select.selected {
+            background: #ff3366;
+            color: white;
+        }
+
+        /* BOTÃO PRINCIPAL */
+        .btn-checkout {
+            background: linear-gradient(45deg, #ff3366, #ff6b6b);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 40px auto;
+            display: block;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255,51,102,0.4);
+        }
+
+        .btn-checkout:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,51,102,0.6);
+        }
+
+        .btn-checkout:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* CHECKOUT MODAL */
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .checkout-modal.active {
+            display: flex;
+        }
+
+        .checkout-content {
+            background: #1a1a2e;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #ff3366;
+        }
+
+        .checkout-content h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .order-summary {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            color: #ccc;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding-top: 20px;
+            border-top: 1px solid #ff3366;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff3366;
+        }
+
+        /* UPSELL */
+        .upsell-box {
+            background: rgba(255,51,102,0.1);
+            border: 2px solid #ff3366;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .upsell-title {
+            color: #ff3366;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .upsell-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .upsell-checkbox {
+            width: 20px;
+            height: 20px;
+            accent-color: #ff3366;
+        }
+
+        .upsell-price {
+            color: #ff3366;
+            font-weight: 700;
+            margin-left: auto;
+        }
+
+        .btn-pay {
+            width: 100%;
+            background: linear-gradient(45deg, #ff3366, #ff6b6b);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,51,102,0.4);
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .payment-methods span {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .close-modal {
+            color: #aaa;
+            cursor: pointer;
+            float: right;
+            font-size: 28px;
+        }
+
+        .close-modal:hover {
+            color: #ff3366;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">EXCLUSIVE+</div>
+        <div class="age-warning">+18 APENAS</div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>ACESSO ILIMITADO AO MELHOR CONTEÚDO</h1>
+            <div class="subtitle">Mais de 25.000 vídeos em 4K - Atualizado diariamente</div>
+            
+            <!-- TIMER DE URGÊNCIA -->
+            <div class="countdown">
+                <h3>🔥 PROMOÇÃO POR TEMPO LIMITADO 🔥</h3>
+                <div class="timer" id="timer">15:00</div>
+            </div>
+        </div>
+
+        <!-- GRID DE PRÉVIAS - SEUS VÍDEOS AQUI, SEU ANIMAL! -->
+        <h2 class="section-title">PRÉVIAS EXCLUSIVAS</h2>
+        <div class="video-grid">
+            <!-- VÍDEO 1 - gnzk43.mp4 -->
+            <div class="video-card" onclick="openPreview('https://files.catbox.moe/gnzk43.mp4')">
+                <video class="video-player" loop muted>
+                    <source src="https://files.catbox.moe/gnzk43.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <div class="video-title">🔥 CONTEÚDO VIP #1</div>
+                    <div class="video-desc">Prévia exclusiva do nosso acervo premium</div>
+                    <span class="video-badge">PRÉVIA GRATUITA</span>
+                </div>
+            </div>
+
+            <!-- VÍDEO 2 - 7hblip.mp4 -->
+            <div class="video-card" onclick="openPreview('https://files.catbox.moe/7hblip.mp4')">
+                <video class="video-player" loop muted>
+                    <source src="https://files.catbox.moe/7hblip.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <div class="video-title">💎 CONTEÚDO VIP #2</div>
+                    <div class="video-desc">As melhores cenas em alta definição</div>
+                    <span class="video-badge">PRÉVIA GRATUITA</span>
+                </div>
+            </div>
+
+            <!-- VÍDEO 3 - moexiy.mp4 -->
+            <div class="video-card" onclick="openPreview('https://files.catbox.moe/moexiy.mp4')">
+                <video class="video-player" loop muted>
+                    <source src="https://files.catbox.moe/moexiy.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <div class="video-title">👑 CONTEÚDO VIP #3</div>
+                    <div class="video-desc">Coleção completa com mais de 1000 vídeos</div>
+                    <span class="video-badge">PRÉVIA GRATUITA</span>
+                </div>
+            </div>
+
+            <!-- VÍDEO 4 - w9q58r.MP4 (vídeo de abandono/upsell) -->
+            <div class="video-card" onclick="openPreview('https://files.catbox.moe/w9q58r.MP4')">
+                <video class="video-player" loop muted>
+                    <source src="https://files.catbox.moe/w9q58r.MP4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <div class="video-title">🎁 CONTEÚDO BÔNUS</div>
+                    <div class="video-desc">Acesso vitalício + atualizações semanais</div>
+                    <span class="video-badge">PRÉVIA GRATUITA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PACOTES -->
+        <div class="packages">
+            <h2 class="section-title">ESCOLHA SEU PACOTE</h2>
+            <div class="package-grid">
+                <div class="package-card">
+                    <div class="package-name">BÁSICO</div>
+                    <div class="package-price">R$37<span>/mês</span></div>
+                    <ul class="package-features">
+                        <li>Acesso a 4.000 vídeos</li>
+                        <li>Qualidade HD</li>
+                        <li>Suporte básico</li>
+                    </ul>
+                    <button class="btn-select" onclick="selectPackage('basico', 37)">SELECIONAR</button>
+                </div>
+
+                <div class="package-card popular">
+                    <div class="popular-badge">MAIS VENDIDO</div>
+                    <div class="package-name">VIP</div>
+                    <div class="package-price">R$57<span>/mês</span></div>
+                    <ul class="package-features">
+                        <li>Acesso a 7.000 vídeos</li>
+                        <li>Qualidade Full HD</li>
+                        <li>Downloads ilimitados</li>
+                        <li>Suporte VIP</li>
+                    </ul>
+                    <button class="btn-select" onclick="selectPackage('vip', 57)">SELECIONAR</button>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-name">PREMIUM</div>
+                    <div class="package-price">R$97<span>/mês</span></div>
+                    <ul class="package-features">
+                        <li>Acesso a 25.000+ vídeos</li>
+                        <li>Qualidade 4K</li>
+                        <li>Downloads ilimitados</li>
+                        <li>Conteúdos exclusivos</li>
+                        <li>Suporte prioritário 24h</li>
+                    </ul>
+                    <button class="btn-select" onclick="selectPackage('premium', 97)">SELECIONAR</button>
+                </div>
+            </div>
+
+            <!-- BOTÃO PRINCIPAL (só aparece depois de selecionar pacote) -->
+            <button class="btn-checkout" id="checkoutBtn" onclick="openCheckout()" disabled>
+                ✅ CONTINUAR PARA PAGAMENTO
+            </button>
+            <div id="selectedPackageInfo" style="text-align: center; color: #ff3366; margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <!-- MODAL DE PRÉVIA -->
+    <div class="checkout-modal" id="previewModal">
+        <div class="checkout-content" style="max-width: 800px;">
+            <span class="close-modal" onclick="closePreview()">&times;</span>
+            <h2>PRÉVIA EXCLUSIVA</h2>
+            <video id="previewVideo" controls style="width: 100%; border-radius: 15px; margin: 20px 0;">
+                <source src="" type="video/mp4">
+            </video>
+            <button class="btn-pay" onclick="closePreview()">FECHAR PRÉVIA</button>
+        </div>
+    </div>
+
+    <!-- MODAL DE CHECKOUT + UPSELL -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <span class="close-modal" onclick="closeCheckout()">&times;</span>
+            <h2>FINALIZAR COMPRA</h2>
+            
+            <div class="order-summary">
+                <h3 style="color: #fff; margin-bottom: 15px;">RESUMO DO PEDIDO</h3>
+                <div class="order-item">
+                    <span>Pacote <span id="selectedPackageName"></span></span>
+                    <span id="selectedPackagePrice">R$ 0,00</span>
+                </div>
+                
+                <!-- UPSELL - APARECE DEPOIS DE SELECIONAR O PACOTE -->
+                <div class="upsell-box">
+                    <div class="upsell-title">🔥 OFERTA ESPECIAL (SÓ HOJE) 🔥</div>
+                    
+                    <div class="upsell-item">
+                        <input type="checkbox" class="upsell-checkbox" id="upsell1" onclick="updateTotal()">
+                        <span>Acesso a ÁREA VIP com 5.000 vídeos extras</span>
+                        <span class="upsell-price">+R$20</span>
+                    </div>
+                    
+                    <div class="upsell-item">
+                        <input type="checkbox" class="upsell-checkbox" id="upsell2" onclick="updateTotal()">
+                        <span>Download de TODOS os vídeos (pacote completo)</span>
+                        <span class="upsell-price">+R$30</span>
+                    </div>
+                    
+                    <div class="upsell-item">
+                        <input type="checkbox" class="upsell-checkbox" id="upsell3" onclick="updateTotal()">
+                        <span>Conteúdos EXCLUSIVOS que não estão no site</span>
+                        <span class="upsell-price">+R$50</span>
+                    </div>
+                </div>
+                
+                <div class="order-total">
+                    <span>TOTAL</span>
+                    <span id="totalPrice">R$ 0,00</span>
+                </div>
+            </div>
+
+            <div class="payment-methods">
+                <span>💳 Cartão</span>
+                <span>📱 Pix</span>
+                <span>💰 Boleto</span>
+            </div>
+
+            <button class="btn-pay" onclick="processPayment()">
+                💰 PAGAR AGORA
+            </button>
+            
+            <div style="text-align: center; color: #888; font-size: 12px; margin-top: 10px;">
+                Compra 100% segura • Pagamento processado com criptografia
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Exclusive+ - Todos os direitos reservados</p>
+        <p style="margin-top: 10px;">Este site contém conteúdo adulto. Apenas para maiores de 18 anos.</p>
+    </div>
+
+    <script>
+        // Variáveis globais
+        let selectedPackage = null;
+        let selectedPrice = 0;
+        let basePrice = 0;
+        
+        // Timer de urgência
+        let timeLeft = 900; // 15 minutos em segundos
+        const timerElement = document.getElementById('timer');
+        
+        function updateTimer() {
+            if (timeLeft <= 0) {
+                timerElement.innerHTML = "00:00";
+                return;
+            }
+            
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateTimer, 1000);
+
+        // Função para abrir prévia dos vídeos
+        function openPreview(videoUrl) {
+            const modal = document.getElementById('previewModal');
+            const video = document.getElementById('previewVideo');
+            video.src = videoUrl;
+            modal.classList.add('active');
+            video.play();
+        }
+
+        function closePreview() {
+            const modal = document.getElementById('previewModal');
+            const video = document.getElementById('previewVideo');
+            video.pause();
+            video.src = '';
+            modal.classList.remove('active');
+        }
+
+        // Função para selecionar pacote
+        function selectPackage(pkg, price) {
+            selectedPackage = pkg;
+            selectedPrice = price;
+            basePrice = price;
+            
+            // Remove seleção anterior
+            document.querySelectorAll('.btn-select').forEach(btn => {
+                btn.classList.remove('selected');
+                btn.innerHTML = 'SELECIONAR';
+            });
+            
+            // Marca o selecionado
+            event.target.classList.add('selected');
+            event.target.innerHTML = '✓ SELECIONADO';
+            
+            // Atualiza nomes
+            let packageName = '';
+            if (pkg === 'basico') packageName = 'BÁSICO';
+            if (pkg === 'vip') packageName = 'VIP';
+            if (pkg === 'premium') packageName = 'PREMIUM';
+            
+            document.getElementById('selectedPackageName').innerHTML = packageName;
+            document.getElementById('selectedPackagePrice').innerHTML = `R$ ${price},00`;
+            
+            // Habilita botão de checkout
+            document.getElementById('checkoutBtn').disabled = false;
+            document.getElementById('selectedPackageInfo').innerHTML = `Pacote ${packageName} selecionado - R$ ${price},00`;
+            
+            updateTotal();
+        }
+
+        // Função para abrir checkout
+        function openCheckout() {
+            if (!selectedPackage) {
+                alert('Selecione um pacote primeiro, seu animal!');
+                return;
+            }
+            document.getElementById('checkoutModal').classList.add('active');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+
+        // Função para atualizar total com upsells
+        function updateTotal() {
+            let total = basePrice;
+            
+            if (document.getElementById('upsell1').checked) total += 20;
+            if (document.getElementById('upsell2').checked) total += 30;
+            if (document.getElementById('upsell3').checked) total += 50;
+            
+            document.getElementById('totalPrice').innerHTML = `R$ ${total},00`;
+        }
+
+        // Função de pagamento (aqui você integra com o gateway)
+        function processPayment() {
+            const total = document.getElementById('totalPrice').innerHTML;
+            
+            // PEGA OS UPSELLS SELECIONADOS
+            const upsells = [];
+            if (document.getElementById('upsell1').checked) upsells.push('Área VIP');
+            if (document.getElementById('upsell2').checked) upsells.push('Downloads');
+            if (document.getElementById('upsell3').checked) upsells.push('Conteúdos Exclusivos');
+            
+            const paymentData = {
+                package: selectedPackage,
+                basePrice: basePrice,
+                totalValue: total,
+                upsells: upsells,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('Dados do pagamento:', paymentData);
+            
+            // AQUI VOCÊ CHAMA O TEU GATEWAY BLACK
+            // Exemplo de chamada pro gateway:
+            /*
+            fetch('https://api-gateway.techbynet.com/api/user/transactions', {
+                method: 'POST',
+                headers: {
+                    'x-api-key': 'sua_chave_aqui',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    amount: parseInt(total.replace('R$', '').replace(',', '')) * 100,
+                    paymentMethod: "PIX",
+                    customer: {
+                        name: "Cliente VIP",
+                        email: "cliente@email.com",
+                        document: {"number": gerarCPF(), "type": "CPF"},
+                    },
+                    items: [{
+                        title: `Pacote ${selectedPackage} + Upsells`,
+                        unitPrice: parseInt(total.replace('R$', '').replace(',', '')) * 100,
+                        quantity: 1
+                    }]
+                })
+            })
+            */
+            
+            alert(`💰 PAGAMENTO PROCESSADO!\n\nTotal: ${total}\nPacote: ${selectedPackage}\nUpsells: ${upsells.length > 0 ? upsells.join(', ') : 'Nenhum'}\n\nAgora é só aguardar a confirmação!`);
+            
+            closeCheckout();
+        }
+
+        // Função pra gerar CPF (caso precise)
+        function gerarCPF() {
+            let cpf = [];
+            for (let i = 0; i < 9; i++) {
+                cpf.push(Math.floor(Math.random() * 9) + 1);
+            }
+            
+            let soma = 0;
+            for (let i = 0; i < 9; i++) {
+                soma += cpf[i] * (10 - i);
+            }
+            let dig1 = 11 - (soma % 11);
+            dig1 = dig1 >= 10 ? 0 : dig1;
+            
+            soma = 0;
+            for (let i = 0; i < 10; i++) {
+                soma += (i < 9 ? cpf[i] : dig1) * (11 - i);
+            }
+            let dig2 = 11 - (soma % 11);
+            dig2 = dig2 >= 10 ? 0 : dig2;
+            
+            cpf.push(dig1);
+            cpf.push(dig2);
+            
+            return cpf.join('');
+        }
+
+        // Inicializa os vídeos
+        window.onload = function() {
+            // Pré-carrega os vídeos (opcional)
+            const videos = document.querySelectorAll('.video-player');
+            videos.forEach(video => {
+                video.addEventListener('mouseenter', function() {
+                    this.play();
+                });
+                video.addEventListener('mouseleave', function() {
+                    this.pause();
+                    this.currentTime = 0;
+                });
+            });
+        };
+    </script>
+</body>
+</html>
